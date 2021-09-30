@@ -1,0 +1,7 @@
+[workspace]
+
+members = ["host"]
+
+# The shell isn't part of the workspace because its compiled as
+# a wasm target
+exclude = ["shell"]

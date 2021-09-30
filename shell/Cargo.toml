@@ -1,0 +1,5 @@
+[package]
+name = "shell"
+authors = ["Tim Gross <tim@0x74696d.com>"]
+version = "0.1.0"
+edition = "2018"
