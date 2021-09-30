@@ -16,6 +16,13 @@ help:
 ## build the project
 build: shell
 
+.PHONY: run
+## build and run the project
+run:
+	cargo run \
+		--bin host -- \
+		"./$(SHELL_TARGET_DIR)/shell.wasm"
+
 #-----------------------------------------
 # shell
 

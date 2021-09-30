@@ -1,0 +1,11 @@
+[package]
+name = "host"
+authors = ["Tim Gross <tim@0x74696d.com>"]
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+anyhow = "1.0"
+wasmtime = "0.30.0"
+wasmtime-wasi = "0.30.0"
+wasi-common = "0.30.0"
