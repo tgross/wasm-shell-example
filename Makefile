@@ -15,13 +15,23 @@ help:
 .PHONY: build
 ## build the project
 build: shell
+	cargo build
+
+SOCKET_PATH ?= /tmp/wasm-shell.sock
 
 .PHONY: run
 ## build and run the project
 run:
+	@rm -f $(SOCKET_PATH)
 	cargo run \
 		--bin host -- \
-		"./$(SHELL_TARGET_DIR)/shell.wasm"
+		"./$(SHELL_TARGET_DIR)/shell.wasm" \
+		$(SOCKET_PATH)
+
+.PHONY: connect
+## connect to the running socket
+connect:
+	socat - UNIX-CONNECT:$(SOCKET_PATH)
 
 #-----------------------------------------
 # shell
