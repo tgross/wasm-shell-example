@@ -63,6 +63,34 @@ fn main() -> Result<()> {
         },
     )?;
 
+    linker.func_wrap(
+        "host",
+        "host_kv_set",
+        |mut caller: Caller<'_, StoreData>,
+         key_ptr: u32,
+         key_len: u32,
+         val_ptr: u32,
+         val_len: u32,
+         res_ptr: u32,
+         res_len: u32|
+         -> u32 {
+            return 0;
+        },
+    )?;
+
+    linker.func_wrap(
+        "host",
+        "host_kv_get",
+        |mut caller: Caller<'_, StoreData>,
+         key_ptr: u32,
+         key_len: u32,
+         res_ptr: u32,
+         res_len: u32|
+         -> u32 {
+            return 0;
+        },
+    )?;
+
     wasmtime_wasi::add_to_linker(&mut linker, |data: &mut StoreData| &mut data.wasi)?;
 
     println!("compiling wasm module...");
