@@ -21,7 +21,7 @@ SOCKET_PATH ?= /tmp/wasm-shell.sock
 
 .PHONY: run
 ## build and run the project
-run:
+run: shell
 	@rm -f $(SOCKET_PATH)
 	cargo run \
 		--bin host -- \
